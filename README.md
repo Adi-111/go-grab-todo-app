@@ -27,6 +27,62 @@ A TODO application developed with React Native and SQLite for local data storage
 ### Update Todo Modal
 ![Update Todo Modal](screenshots/updateTodo.jpeg)
 
+File Structure
+The project is structured as follows:
+ ```sh
+todo-application/
+├── README.md
+├── app
+│   ├── (tabs)
+│   │   ├── _layout.tsx
+│   │   ├── index.tsx
+│   │   └── todo-list.tsx
+│   └── _layout.tsx
+├── app.json
+├── assets
+│   ├── fonts
+│   │   └── SpaceMono-Regular.ttf
+│   └── images
+│       ├── adaptive-icon.png
+│       ├── favicon.png
+│       ├── icon.png
+│       ├── partial-react-logo.png
+│       ├── react-logo.png
+│       ├── react-logo@2x.png
+│       ├── react-logo@3x.png
+│       └── splash.png
+├── babel.config.js
+├── components
+│   ├── add-group-modal.tsx
+│   ├── add-todo-model.tsx
+│   ├── navigation
+│   │   └── TabBarIcon.tsx
+│   ├── themed-view.tsx
+│   ├── update-group-modal.tsx
+│   └── update-todo-modal.tsx
+├── constants
+│   └── Colors.ts
+├── expo-env.d.ts
+├── hooks
+│   ├── useColorScheme.ts
+│   ├── useColorScheme.web.ts
+│   ├── useDb.ts
+│   └── useThemeColor.ts
+├── nativewind-env.d.ts
+├── package-lock.json
+├── package.json
+├── screenshots
+│   ├── AddGroup.jpeg
+│   ├── HomeScreen.jpeg
+│   ├── TodoScreen.jpeg
+│   ├── addtodo.jpeg
+│   └── updateTodo.jpeg
+├── scripts
+│   └── reset-project.js
+├── tailwind.config.js
+└── tsconfig.json
+```
+
 ## Getting Started
 
 ### Prerequisites
@@ -55,9 +111,7 @@ A TODO application developed with React Native and SQLite for local data storage
    npm install
    ```
 
-3. **Initialize the Database**
 
-   Ensure you have the SQLite database set up and initialized. You may need to run any setup scripts or ensure that the database is correctly configured.
 
 ### Running the App
 
