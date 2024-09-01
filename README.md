@@ -1,51 +1,127 @@
-# Welcome to your Expo app 👋
+Sure! Here's a sample `README.md` file for your project that includes sections for what you’ve done, screenshots, and initialization instructions:
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+---
 
-## Get started
+# TODO Application
 
-1. Install dependencies
+A TODO application developed with React Native and SQLite for local data storage. This app allows users to manage their tasks efficiently with features like adding, updating, and deleting todos, and organizing them into groups.
 
-   ```bash
+## Features
+
+- **Group Management:** Create and manage groups for organizing todos.
+- **Todo Management:** Add, update, and delete todos within each group.
+- **Completion Tracking:** Mark todos as completed or pending.
+- **Modals:** Use modals for adding and updating todos.
+
+## Screenshots
+
+### Home Screen
+![Home Screen](screenshots/HomeScreen.jpeg)
+
+### Todo List
+![Todo List](screenshots/TodoScreen.jpeg)
+
+### Add Todo Modal
+![Add Todo Modal](screenshots/addtodo.jpeg)
+
+### Update Todo Modal
+![Update Todo Modal](screenshots/updateTodo.jpeg)
+
+## Getting Started
+
+### Prerequisites
+
+- **Node.js:** Ensure you have Node.js installed. [Download Node.js](https://nodejs.org/)
+- **Expo CLI:** Install Expo CLI if you haven’t already.
+
+  ```sh
+  npm install -g expo-cli
+  ```
+
+- **SQLite:** SQLite is used for local data storage. Ensure you have it configured for your project.
+
+### Installation
+
+1. **Clone the Repository**
+
+   ```sh
+   git clone https://github.com/your-username/todo-application.git
+   cd todo-application
+   ```
+
+2. **Install Dependencies**
+
+   ```sh
    npm install
    ```
 
-2. Start the app
+3. **Initialize the Database**
 
-   ```bash
-    npx expo start
+   Ensure you have the SQLite database set up and initialized. You may need to run any setup scripts or ensure that the database is correctly configured.
+
+### Running the App
+
+1. **Start the Expo Development Server**
+
+   ```sh
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+   This will open a new tab in your default browser with the Expo DevTools. You can scan the QR code with the Expo Go app to run the project on your mobile device, or use an emulator/simulator.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+2. **Run on Android/iOS Emulator**
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+   To run the app on an Android or iOS emulator:
 
-## Get a fresh project
+   ```sh
+   npm run android
+   ```
 
-When you're ready, run:
+   or
 
-```bash
-npm run reset-project
-```
+   ```sh
+   npm run ios
+   ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Code Overview
 
-## Learn more
+### `App.tsx`
 
-To learn more about developing your project with Expo, look at the following resources:
+The main entry point of the application where the navigation and global components are set up.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### `components/`
 
-## Join the community
+- **`add-group-modal.tsx`**: Modal for adding new groups.
+- **`add-todo-modal.tsx`**: Modal for adding new todos.
+- **`update-todo-modal.tsx`**: Modal for updating existing todos.
+- **`themed-view.tsx`**: A view component with theme support.
 
-Join our community of developers creating universal apps.
+### `hooks/useDb.ts`
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-# go-grab-todo-app
+Contains database functions for interacting with the SQLite database:
+
+- **`getGroups`**: Fetch all groups from the database.
+- **`insertTodo`**: Insert a new todo into the database.
+- **`deleteTodo`**: Delete a todo from the database.
+- **`updateTodoToggle`**: Update the completion status of a todo.
+
+### `screens/`
+
+- **`index.tsx`**: Home screen displaying the list of groups.
+- **`todo-list.tsx`**: Screen displaying todos within a selected group.
+
+## Troubleshooting
+
+- **Database is Locked Error:** This usually occurs due to concurrent transactions. Ensure that transactions are short and avoid overlapping queries. Implement retry logic if needed.
+
+## Contributing
+
+Feel free to open issues or submit pull requests to contribute to the development of the application.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+This `README.md` provides a comprehensive overview of the application, its features, setup instructions, and code structure. Make sure to update the placeholders like `https://github.com/your-username/todo-application.git` with your actual repository URL and add the actual screenshots to the `screenshots` directory.
