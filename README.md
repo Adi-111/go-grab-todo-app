@@ -85,7 +85,7 @@ A TODO application developed with React Native and SQLite for local data storage
 
 ## Code Overview
 
-### `App.tsx`
+### `index.tsx`
 
 The main entry point of the application where the navigation and global components are set up.
 
@@ -105,22 +105,12 @@ Contains database functions for interacting with the SQLite database:
 - **`deleteTodo`**: Delete a todo from the database.
 - **`updateTodoToggle`**: Update the completion status of a todo.
 
-### `screens/`
+### `(tabs)/`
 
 - **`index.tsx`**: Home screen displaying the list of groups.
 - **`todo-list.tsx`**: Screen displaying todos within a selected group.
 
-## Troubleshooting
 
-- **Database is Locked Error:** This usually occurs due to concurrent transactions. Ensure that transactions are short and avoid overlapping queries. Implement retry logic if needed.
-
-## Contributing
-
-Feel free to open issues or submit pull requests to contribute to the development of the application.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
