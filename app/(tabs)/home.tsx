@@ -1,7 +1,7 @@
 import { ScrollView, Text, TouchableOpacity, View, Alert } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useEffect, useState } from 'react';
-import { getGroups, deleteGroup, initializeDatabase, updateGroup, dropAllTables } from '@/hooks/useDb';
+import { getGroups, deleteGroup, updateGroup } from '@/hooks/useDb';
 import AddGroupModal from '@/components/add-group-modal';
 import UpdateGroupModal from '@/components/update-group-modal'; // Import the new component
 
@@ -16,9 +16,6 @@ export default function Index() {
   const [isAddModalVisible, setAddModalVisible] = useState(false);
   const [isUpdateModalVisible, setUpdateModalVisible] = useState(false);
   const [selectedGroup, setSelectedGroup] = useState<{ id: number; name: string; icon: string } | null>(null);
-
-  initializeDatabase();
-
   useEffect(() => {
     getGroups(setGroups);
   }, [isAddModalVisible, isUpdateModalVisible]);
