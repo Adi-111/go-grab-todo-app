@@ -62,7 +62,7 @@ export default function Index() {
 
   return (
     <ThemedView className="bg-lime-50 items-center">
-      <View className='h-12 bg-black w-full' />
+      <View className='h-12  w-full' />
       <Text className="text-black mt-3 font-extrabold text-4xl">Groups</Text>
       <TouchableOpacity className='my-2' onPress={() => setAddModalVisible(true)}>
         <View className='p-2 bg-gray-100 rounded-full items-center justify-center'>

@@ -2,17 +2,20 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 import { ThemedView } from '@/components/themed-view';
 import { ScrollView, Text, TouchableOpacity, View, Alert } from 'react-native';
 import { useEffect, useState } from 'react';
-import { getTodos, insertTodo, deleteTodo, updateTodoToggle, } from '@/hooks/useDb'; // Import `updateTodoToggle`
-import AddTodoModal from '@/components/add-todo-model';
-import UpdateTodoModal from '@/components/update-todo-modal'; // Import the new component
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { RouteParams } from 'expo-router';
+import { useNavigation } from 'expo-router';
+
+//local imports
+import AddTodoModal from '@/components/add-todo-model';
+import UpdateTodoModal from '@/components/update-todo-modal';
+import { getTodos, insertTodo, deleteTodo, updateTodoToggle, } from '@/hooks/useDb'; // Import Db
 
 type TodoListScreenRouteProp = RouteProp<{
     params: { groupId: number; groupName: string }
 }, 'params'>;
 
 export default function TodoListScreen() {
+    const navigation = useNavigation();
     const route = useRoute<TodoListScreenRouteProp>();
     const { groupId, groupName } = route.params || {};
     // Fallback to empty object if route.params is undefined
@@ -92,15 +95,23 @@ export default function TodoListScreen() {
 
     return (
         <ThemedView className="bg-lime-50 items-center">
-
-            <View className='h-12 bg-black w-full' />
+            <View className='h-12 bg-transparent w-full' />
             <Text className="text-black mt-3 font-extrabold text-4xl">{groupName} : Todo's</Text>
-            <TouchableOpacity className='my-2' onPress={() => setModalVisible(true)}>
-                <View className='p-2 bg-gray-100 rounded-full items-center justify-center'>
-                    <Ionicons name="add" size={32} />
-                </View>
-            </TouchableOpacity>
+            <View className=' flex-row justify-between w-[80%] self-center'>
+                <TouchableOpacity className="ml-16 items-center justify-center" onPress={() => navigation.goBack()}>
+                    <View className="p-2 bg-gray-100 rounded-full items-center justify-center absolute right-4">
+                        <Ionicons name="arrow-back" size={32} />
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity className='my-2' onPress={() => setModalVisible(true)}>
+                    <View className='p-2 bg-gray-100 rounded-full items-center justify-center'>
+                        <Ionicons name="add" size={32} />
+                    </View>
+                </TouchableOpacity>
+            </View>
+
             <AddTodoModal visible={isModalVisible} onClose={() => setModalVisible(false)} onAddTodo={handleAddTodo} />
+
 
             <ScrollView className='w-[88%]'>
                 {todos.map(todo => (
